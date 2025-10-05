@@ -82,3 +82,4 @@ ENV/
 # Configuracion local
 config_local.yaml
 *.env
+.devcontainer/
