@@ -488,10 +488,9 @@ Contra las expectativas, XGBoost (R cuadrado=0.66) quedó último:
 
 ## Autor
 
-**Tu Nombre**
-- GitHub: [@tu-usuario](https://github.com/tu-usuario)
-- LinkedIn: [Tu Perfil](https://linkedin.com/in/tu-perfil)
-- Email: tu.email@ejemplo.com
+**Bastian Berrios**
+- GitHub: [@BastianBerriosalarcon](https://github.com/BastianBerriosalarcon/)
+- Email: bastianberrios.a@gmail.com
 
 ---
 
