@@ -105,6 +105,12 @@ predictor-precio-cobre/
 │       ├── features_summary.csv
 │       └── model_comparison_all.csv
 │
+├── docs/                             # Documentación del proyecto
+│   ├── PRESENTACION.md              # Presentación ejecutiva (15 slides)
+│   ├── claude.md                    # Plan y especificaciones del proyecto
+│   ├── TASKS.md                     # Checklist de tareas completadas
+│   └── intrucciones_preciocobre.md  # Instrucciones iniciales
+│
 ├── models/                           # Modelos entrenados (.pkl)
 │   ├── ridge_model.pkl              # Mejor modelo (R2=0.9914)
 │   ├── linear_regression.pkl
@@ -129,11 +135,10 @@ predictor-precio-cobre/
 │   ├── __init__.py
 │   ├── data_loader.py               # Funciones de descarga/carga
 │   ├── features.py                  # Lógica de feature engineering
-│   ├── models.py                    # Entrenamiento de modelos
+│   ├── models.py                    # Entrenamiento de modelos (6 modelos)
 │   └── visualization.py             # Gráficos estandarizados
 │
-├── config.yaml                       # Parámetros configurables
-└── README.md                         # Este archivo
+└── config.yaml                       # Parámetros configurables
 ```
 
 ---

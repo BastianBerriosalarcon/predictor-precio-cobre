@@ -80,27 +80,30 @@ predictor-precio-cobre/
 │   ├── raw/                    # CSV/Excel descargados de fuentes
 │   └── processed/              # Datos con features creados
 │
+├── docs/                       # Documentación del proyecto
+│   ├── PRESENTACION.md        # Presentación ejecutiva (15 slides)
+│   ├── claude.md              # Este archivo - Plan del proyecto
+│   ├── TASKS.md               # Checklist de tareas completadas
+│   └── intrucciones_preciocobre.md  # Instrucciones iniciales
+│
 ├── notebooks/                  # Jupyter Notebooks para exploración
 │   ├── 01_descarga_datos.ipynb
 │   ├── 02_eda.ipynb
 │   ├── 03_feature_engineering.ipynb
 │   ├── 04_modelado.ipynb
-│   ├── 05_modelado_avanzado.ipynb        # NUEVO: Ridge, XGBoost, RF, SARIMAX
-│   └── 06_ensemble_optimizacion.ipynb    # NUEVO (opcional): Ensemble y tuning
+│   ├── 05_modelado_avanzado.ipynb        # COMPLETADO: Ridge, XGBoost, RF, SARIMAX
+│   └── 06_ensemble_optimizacion.ipynb    # OPCIONAL: Ensemble y tuning
 │
 ├── src/                        # Código Python reutilizable
 │   ├── __init__.py
-│   ├── data_loader.py
-│   ├── features.py
-│   ├── models.py
-│   └── visualization.py
+│   ├── data_loader.py         # Descarga y carga de datos
+│   ├── features.py            # Feature engineering (42 features)
+│   ├── models.py              # 6 modelos: LR, Ridge, XGBoost, RF, ARIMA, SARIMAX
+│   └── visualization.py       # Gráficos estandarizados
 │
 ├── models/                     # Modelos .pkl entrenados
 ├── reports/figures/            # Gráficos PNG
-├── .gitignore
-├── requirements.txt
-├── config.yaml
-└── README.md
+└── config.yaml                 # Parámetros configurables
 ```
 
 ## Features Principales
