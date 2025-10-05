@@ -1,3 +1,84 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
 notebooks/data
 notebooks/cifar_net.pth
-.ipynb_checkpoints/
+
+# Datos - predictor-precio-cobre
+predictor-precio-cobre/data/raw/*.csv
+predictor-precio-cobre/data/processed/*.csv
+predictor-precio-cobre/data/raw/*.xlsx
+predictor-precio-cobre/data/processed/*.xlsx
+predictor-precio-cobre/data/raw/*.json
+predictor-precio-cobre/data/processed/*.json
+# Excepciones: mantener archivos pequeños de metadata
+!predictor-precio-cobre/data/processed/features_summary.csv
+!predictor-precio-cobre/data/processed/model_comparison_all.csv
+!predictor-precio-cobre/data/**/.gitkeep
+
+# Modelos entrenados - predictor-precio-cobre
+predictor-precio-cobre/models/*.pkl
+predictor-precio-cobre/models/*.joblib
+predictor-precio-cobre/models/*.h5
+predictor-precio-cobre/models/*.pt
+# Excepciones: mantener modelos pequeños y CSVs
+!predictor-precio-cobre/models/ridge_model.pkl
+!predictor-precio-cobre/models/linear_regression.pkl
+!predictor-precio-cobre/models/best_model.pkl
+!predictor-precio-cobre/models/*.csv
+!predictor-precio-cobre/models/*.json
+!predictor-precio-cobre/models/.gitkeep
+
+# Reportes - predictor-precio-cobre
+predictor-precio-cobre/reports/figures/*.png
+predictor-precio-cobre/reports/figures/*.jpg
+predictor-precio-cobre/reports/figures/*.pdf
+# Excepciones: mantener visualizaciones clave (pequeñas)
+!predictor-precio-cobre/reports/figures/model_comparison_metrics.png
+!predictor-precio-cobre/reports/figures/predictions_comparison_all_models.png
+!predictor-precio-cobre/reports/**/.gitkeep
+
+# Entornos virtuales
+venv/
+env/
+ENV/
+.venv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Archivos temporales
+*.log
+*.tmp
+.cache/
+
+# Configuracion local
+config_local.yaml
+*.env

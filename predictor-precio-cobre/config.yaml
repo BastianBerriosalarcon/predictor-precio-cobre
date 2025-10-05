@@ -1,0 +1,102 @@
+# Configuracion del Proyecto: Predictor Precio Cobre Chile
+
+# Fuentes de datos
+data:
+  source: 'yahoo'  # 'yahoo' o 'cochilco'
+  ticker: 'HG=F'   # Copper Futures en Yahoo Finance
+  start_date: '2010-01-01'
+  end_date: null   # null = hasta hoy
+
+# Rutas de carpetas
+paths:
+  raw_data: 'data/raw/'
+  processed_data: 'data/processed/'
+  models: 'models/'
+  figures: 'reports/figures/'
+
+# Archivos
+files:
+  raw_csv: 'precio_cobre_yahoo.csv'
+  processed_csv: 'precio_cobre_processed.csv'
+  best_model: 'best_model.pkl'
+  linear_regression: 'linear_regression.pkl'
+  arima_model: 'arima_model.pkl'
+
+# Feature Engineering
+features:
+  # Lags: valores pasados
+  lags: [1, 2, 3, 7, 14, 30]
+
+  # Ventanas para rolling statistics
+  rolling_windows: [7, 30, 90]
+
+  # Estadisticos rolling a calcular
+  rolling_stats: ['mean', 'std', 'min', 'max']
+
+  # Features temporales
+  temporal:
+    - 'year'
+    - 'month'
+    - 'day'
+    - 'dayofweek'
+    - 'quarter'
+    - 'is_month_start'
+    - 'is_month_end'
+
+  # Features de tendencia
+  trend:
+    - 'price_diff'
+    - 'price_pct_change'
+    - 'volatility_7d'
+    - 'volatility_30d'
+
+# Configuracion de modelos
+models:
+  # Linear Regression
+  linear_regression:
+    fit_intercept: true
+    normalize: false
+
+  # ARIMA
+  arima:
+    order: [5, 1, 2]  # (p, d, q)
+    # p=5: autoregresivo (ultimos 5 valores)
+    # d=1: diferenciacion de primer orden
+    # q=2: media movil de ultimos 2 errores
+    seasonal: false
+    enforce_stationarity: true
+    enforce_invertibility: true
+
+# Split de datos (cronologico, sin shuffle)
+split:
+  train_size: 0.8   # 80%
+  val_size: 0.1     # 10%
+  test_size: 0.1    # 10%
+  shuffle: false    # CRITICO: No hacer shuffle en series temporales
+
+# Metricas objetivo
+target_metrics:
+  r2_min: 0.85        # R-squared minimo esperado
+  mae_max: 0.15       # MAE maximo esperado (USD/lb)
+  rmse_max: 0.20      # RMSE maximo esperado (USD/lb)
+  mape_max: 5.0       # MAPE maximo esperado (%)
+
+# Visualizacion
+visualization:
+  figure_size: [12, 6]
+  style: 'seaborn-v0_8-darkgrid'
+  colors:
+    train: '#1f77b4'
+    val: '#ff7f0e'
+    test: '#2ca02c'
+    predictions: '#d62728'
+  dpi: 100
+  save_format: 'png'
+
+# Random seed para reproducibilidad
+random_seed: 42
+
+# Logging
+logging:
+  level: 'INFO'
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'

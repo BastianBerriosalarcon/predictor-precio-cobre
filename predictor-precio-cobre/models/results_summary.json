@@ -1,0 +1,16 @@
+{
+  "best_model": "Linear Regression",
+  "test_mae": 0.016909662176084812,
+  "test_rmse": 0.032599328241334935,
+  "test_r2": 0.992296809974852,
+  "test_mape": 0.36810984390331786,
+  "train_size": 3097,
+  "val_size": 387,
+  "test_size": 388,
+  "num_features": 42,
+  "arima_order": [
+    5,
+    1,
+    2
+  ]
+}

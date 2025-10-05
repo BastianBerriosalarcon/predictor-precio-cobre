@@ -1,0 +1,43 @@
+Nombre,Grupo,Tipo,Descripción,Justificación EDA
+month,Estacionalidad,Categórica,Mes del año (1-12),Hallazgo #1: Precios ~5% más altos en mar-may
+quarter,Estacionalidad,Categórica,Trimestre (1-4),Hallazgo #1: Q2 tiene mayor demanda
+is_q2,Estacionalidad,Binaria,Flag para Q2 (abr-jun),Hallazgo #1: Período de mayor demanda
+month_sin,Estacionalidad,Continua,Encoding cíclico del mes (seno),Hallazgo #1: Captura continuidad dic→ene
+month_cos,Estacionalidad,Continua,Encoding cíclico del mes (coseno),Hallazgo #1: Captura continuidad dic→ene
+is_high_season,Estacionalidad,Binaria,Flag para marzo-mayo,Hallazgo #1: Meses de precios altos
+price_pct_change,Volatilidad,Continua,Retorno diario (%),Hallazgo #2: Base para medir volatilidad
+volatility_7d,Volatilidad,Continua,Desv. est. retornos 7 días,Hallazgo #2: Nerviosismo corto plazo
+volatility_30d,Volatilidad,Continua,Desv. est. retornos 30 días,Hallazgo #2: Volatilidad mediano plazo
+volatility_90d,Volatilidad,Continua,Desv. est. retornos 90 días,Hallazgo #2: Volatilidad largo plazo
+is_high_volatility,Volatilidad,Binaria,Flag cuando vol_30d > 0.03,Hallazgo #2: Marca períodos de crisis
+volatility_ratio,Volatilidad,Continua,vol_7d / vol_30d,Hallazgo #2: Aceleración volatilidad
+rolling_mean_7,Tendencia,Continua,Media móvil 7 días,Hallazgo #3: Tendencia corto plazo
+rolling_mean_30,Tendencia,Continua,Media móvil 30 días,Hallazgo #3: Tendencia mediano plazo
+rolling_mean_90,Tendencia,Continua,Media móvil 90 días,Hallazgo #3: Tendencia largo plazo
+price_vs_ma_7,Tendencia,Continua,Distancia normalizada vs MA7,Hallazgo #3: Sobre/bajo promedio reciente
+price_vs_ma_30,Tendencia,Continua,Distancia normalizada vs MA30,Hallazgo #3: Sobre/bajo tendencia media
+trend_7_30,Tendencia,Continua,MA7 / MA30 (>1 alcista),Hallazgo #3: Dirección de tendencia
+momentum_7,Tendencia,Continua,Cambio % en 7 días,Hallazgo #3: Velocidad del movimiento
+is_outlier,Outliers,Binaria,Flag cuando |z_score| > 3,Hallazgo #4: ~40 outliers detectados
+abs_price_change,Outliers,Continua,Valor absoluto cambio diario,Hallazgo #4: Magnitud del movimiento
+extreme_move_flag,Outliers,Binaria,Flag cuando |cambio| > 5%,Hallazgo #4: Eventos extremos
+days_since_extreme,Outliers,Continua,Días desde último evento >5%,Hallazgo #4: Tiempo desde crisis
+lag_1,Lags,Continua,Precio hace 1 día,Hallazgo #5: Correlación 0.95+
+lag_2,Lags,Continua,Precio hace 2 días,Hallazgo #5: Correlación 0.95+
+lag_3,Lags,Continua,Precio hace 3 días,Hallazgo #5: Correlación 0.95+
+lag_7,Lags,Continua,Precio hace 7 días (1 semana),Hallazgo #5: Correlación 0.7-0.8
+lag_14,Lags,Continua,Precio hace 14 días (2 semanas),Hallazgo #5: Correlación 0.7-0.8
+lag_30,Lags,Continua,Precio hace 30 días (1 mes),Hallazgo #5: Correlación 0.3-0.5
+rolling_std_7,Estadísticas,Continua,Desv. est. precio 7 días,Hallazgo #6: Dispersión corto plazo
+rolling_std_30,Estadísticas,Continua,Desv. est. precio 30 días,Hallazgo #6: Dispersión mediano plazo
+rolling_min_30,Estadísticas,Continua,Precio mínimo últimos 30 días,Hallazgo #6: Límite inferior rango
+rolling_max_30,Estadísticas,Continua,Precio máximo últimos 30 días,Hallazgo #6: Límite superior rango
+price_range_30,Estadísticas,Continua,max_30 - min_30,Hallazgo #6: Amplitud del rango
+price_position_in_range,Estadísticas,Continua,Posición en rango (0-1),Hallazgo #6: Relación con extremos
+day_of_week,Intrasemanal,Categórica,"Día semana (0=lun, 6=dom)",Hallazgo #7: Patrones día semana
+is_monday,Intrasemanal,Binaria,Flag para lunes,Hallazgo #7: Mayor volatilidad
+is_friday,Intrasemanal,Binaria,Flag para viernes,Hallazgo #7: Mayor volatilidad
+is_midweek,Intrasemanal,Binaria,Flag mar-mié-jue,Hallazgo #7: Días más estables
+day_of_month,Intrasemanal,Continua,Día del mes (1-31),Hallazgo #7: Patrones mensuales
+is_month_start,Intrasemanal,Binaria,Flag primeros 5 días mes,Hallazgo #7: Inicio de período
+is_month_end,Intrasemanal,Binaria,Flag últimos 7 días mes,Hallazgo #7: Cierre de período
