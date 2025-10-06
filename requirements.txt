@@ -1,26 +1,15 @@
-# Core data science libraries
-ipywidgets==8.1.2
-matplotlib==3.8.4
+# Dependencias optimizadas para Streamlit Cloud
+# Solo incluye lo necesario para ejecutar app.py
+
+# Core data science
 pandas==2.2.2
-numpy>=1.26.4,<2.0  # pmdarima requiere numpy<2.0 por compatibilidad binaria
-tqdm==4.66.4
-jupyter==1.0.0
+numpy>=1.26.4,<2.0
 
-# Dependencias para predictor-precio-cobre
+# Machine learning (solo lo necesario para cargar modelos)
 scikit-learn==1.3.2
-statsmodels==0.14.1
-seaborn==0.13.2
+
+# Visualization
 plotly==5.18.0
-yfinance==0.2.35
-pyyaml==6.0.1
-joblib==1.3.2
-
-# Modelado avanzado (Notebook 05)
-xgboost==2.0.3
-# pmdarima==2.0.4  # Solo necesario para notebooks ARIMA, comentado para deployment
-
-# Data validation and utilities
-scipy>=1.11.0
 
 # Streamlit web app
 streamlit==1.32.0
