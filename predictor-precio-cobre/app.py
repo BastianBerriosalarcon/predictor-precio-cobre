@@ -121,6 +121,20 @@ except Exception as e:
 st.markdown('<p class="main-header">Predictor de Precio del Cobre</p>', unsafe_allow_html=True)
 st.markdown('<p class="sub-header">Modelo de Machine Learning con Ridge Regression | R² = 99.14%</p>', unsafe_allow_html=True)
 
+# Advertencia sobre limitaciones del modelo
+st.warning("""
+**Limitaciones del Modelo Predictivo:**
+
+Este modelo Ridge Regression fue entrenado con datos históricos y funciona mejor para **predicciones de corto plazo en condiciones normales de mercado**. Sin embargo:
+
+- **No predice eventos extremos:** Caídas súbitas causadas por crisis económicas, cambios geopolíticos o shocks de demanda no pueden anticiparse sin datos externos (noticias, indicadores macro).
+- **Alta autocorrelación:** El modelo asume que el precio futuro será similar al reciente. Si hay un cambio brusco en los últimos días, las predicciones partirán de ese último valor conocido.
+- **Sin variables exógenas:** No incorpora factores como tipo de cambio USD, tasas de interés, inventarios globales o sentiment de noticias.
+- **Datos históricos:** Las predicciones se basan en el último precio registrado en el dataset. Si el mercado cambió recientemente, actualizar los datos mejora la precisión.
+
+**Recomendación:** Usa este modelo como referencia de tendencia, no como única fuente para decisiones financieras. Complementa con análisis fundamental y noticias del mercado.
+""")
+
 st.markdown("---")
 
 # ============================
@@ -348,12 +362,15 @@ with tab1:
     # Interpretación
     st.info(f"""
     **Interpretación:**
-    - Se proyecta el precio del cobre para los próximos **{horizon_days} días**
-    - Predicción para mañana: **${predictions[0]:.4f} USD/lb** ({((predictions[0] - last_price) / last_price * 100):+.2f}% vs hoy)
-    - Predicción día {horizon_days}: **${predictions[-1]:.4f} USD/lb** ({((predictions[-1] - last_price) / last_price * 100):+.2f}% vs hoy)
+    - Se proyecta el precio del cobre para los próximos **{horizon_days} días** basándose en tendencias históricas
+    - Predicción para mañana: **${predictions[0]:.4f} USD/lb** ({((predictions[0] - last_price) / last_price * 100):+.2f}% vs último dato registrado)
+    - Predicción día {horizon_days}: **${predictions[-1]:.4f} USD/lb** ({((predictions[-1] - last_price) / last_price * 100):+.2f}% vs último dato registrado)
     - El intervalo de confianza se amplía con el horizonte temporal (mayor incertidumbre a futuro)
-    - **Nota**: Predicciones de largo plazo (>7 días) tienen mayor incertidumbre
+    - **Nota**: Predicciones de largo plazo (>7 días) tienen mayor incertidumbre. Estas proyecciones asumen condiciones normales de mercado sin shocks externos.
     """)
+
+    # Última actualización del dataset
+    st.caption(f"**Último dato registrado en el dataset:** {last_date.strftime('%Y-%m-%d')} | Precio: ${last_price:.4f} USD/lb")
 
 # ============================
 # TAB 2: HISTÓRICO
