@@ -1,0 +1,15 @@
+# Dependencias para la aplicacion Streamlit del Predictor de Precio del Cobre
+# Archivo optimizado - solo incluye lo necesario para app.py
+
+# Core data science
+pandas==2.2.2
+numpy>=1.26.4,<2.0
+
+# Machine learning (solo lo necesario para cargar modelos)
+scikit-learn==1.3.2
+
+# Visualization
+plotly==5.18.0
+
+# Streamlit web app
+streamlit==1.32.0
