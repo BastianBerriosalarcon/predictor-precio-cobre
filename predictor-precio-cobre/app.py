@@ -316,7 +316,7 @@ with tab1:
 
     # Línea vertical separadora
     fig_forecast.add_vline(
-        x=last_date,
+        x=last_date.to_pydatetime(),
         line_dash="dot",
         line_color="gray",
         annotation_text="Último dato",
