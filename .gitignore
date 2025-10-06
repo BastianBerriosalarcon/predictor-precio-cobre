@@ -83,3 +83,6 @@ ENV/
 config_local.yaml
 *.env
 .devcontainer/
+
+# Streamlit secrets
+predictor-precio-cobre/.streamlit/secrets.toml
