@@ -265,24 +265,6 @@ Similar a OCI, pero con:
 
 ---
 
-## Comparación de Opciones
-
-| Plataforma | Costo Mensual | Dificultad | Tiempo Setup | Región Chile | Latencia | Recomendación |
-|------------|---------------|------------|--------------|--------------|----------|---------------|
-| **Streamlit Cloud** | GRATIS | Muy Fácil | 5 min | Global (CDN) | Variable | Mejor para Portfolio |
-| **OCI Always Free** | GRATIS | Media | 30 min | Santiago/Valparaíso | <5ms | Gratis + Latencia perfecta |
-| **Azure Chile Central** | ~$15 | Media | 25 min | Santiago | <5ms | Enterprise en Chile |
-| **GCP Cloud Run** | $0-5 | Fácil | 15 min | Santiago | <10ms | Free tier + Chile |
-| **AWS Local Zone** | ~$5-10 | Fácil | 20 min | Santiago (limitado) | ~15ms | Limitado hasta 2026 |
-
-**Recomendación para Chile (2025)**:
-1. **Streamlit Cloud** - Gratis, fácil, perfecto para portfolio
-2. **OCI Santiago/Valparaíso** - Gratis permanente + mejor latencia (<5ms) + 2 regiones en Chile
-3. **GCP Cloud Run Santiago** - Free tier + latencia excelente (<10ms)
-4. **Azure Chile Central** - Si necesitas Azure específicamente
-
----
-
 ## Notas sobre Datacenters en Chile y Latencia
 
 ### Proveedores con datacenter COMPLETO en Chile (2025):
@@ -306,20 +288,22 @@ Similar a OCI, pero con:
 - Inaugurado en 2021
 - Latencia desde Chile: < 10ms
 
-### Proveedores con presencia limitada en Chile:
-
 **AWS (Amazon Web Services)**:
-- **Local Zone**: `us-east-1-scl-1` (Santiago) - Disponible desde 2023
-- Latencia: ~15-20ms (conectado a us-east-1 Virginia)
+- **Local Zone Santiago**: `us-east-1-scl-1` (Disponible desde Enero 2023)
+- Latencia desde Chile: < 10ms (single-digit milliseconds)
+- **Infraestructura adicional en Chile**:
+  - CloudFront Edge Location (2019)
+  - AWS Direct Connect Santiago (2023)
+  - AWS Ground Station Punta Arenas (2021)
 - **Región completa planificada para finales de 2026**
-- Inversión anunciada: $4 mil millones USD
-- **Nota**: Local Zone tiene capacidades limitadas vs región completa
+- Inversión: $4 mil millones USD
+- **Nota**: Local Zone tiene capacidades limitadas vs región completa (no todos los servicios)
 
 ### Recomendación por latencia para usuarios en Chile (2025):
-1. **OCI Santiago/Valparaíso** - Mejor latencia (<5ms), 2 regiones, gratis (Always Free)
+1. **OCI Santiago/Valparaíso** - Latencia excelente (<5ms), 2 regiones completas, GRATIS
 2. **Azure Chile Central** - Latencia excelente (<5ms), región completa
-3. **GCP southamerica-west1** - Latencia excelente (<10ms), free tier disponible
-4. **AWS Local Zone** - Latencia aceptable (~15ms), limitado hasta 2026
+3. **AWS Local Zone Santiago** - Latencia excelente (<10ms), capacidades limitadas
+4. **GCP southamerica-west1** - Latencia excelente (<10ms), región completa, free tier
 
 ---
 
