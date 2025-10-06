@@ -12,8 +12,12 @@ import numpy as np
 import pickle
 import plotly.graph_objects as go
 from datetime import datetime, timedelta
+from pathlib import Path
 import warnings
 warnings.filterwarnings('ignore')
+
+# Obtener directorio base del script
+BASE_DIR = Path(__file__).parent
 
 # Configuración de página
 st.set_page_config(
@@ -65,21 +69,21 @@ st.markdown("""
 @st.cache_data
 def load_data():
     """Cargar datos procesados con features"""
-    df = pd.read_csv('data/processed/precio_cobre_features.csv')
+    df = pd.read_csv(BASE_DIR / 'data' / 'processed' / 'precio_cobre_features.csv')
     df['fecha'] = pd.to_datetime(df['fecha'])
     return df
 
 @st.cache_resource
 def load_model():
     """Cargar modelo Ridge entrenado"""
-    with open('models/ridge_model.pkl', 'rb') as f:
+    with open(BASE_DIR / 'models' / 'ridge_model.pkl', 'rb') as f:
         model = pickle.load(f)
     return model
 
 @st.cache_data
 def load_feature_names():
     """Cargar nombres de features"""
-    with open('models/feature_names.pkl', 'rb') as f:
+    with open(BASE_DIR / 'models' / 'feature_names.pkl', 'rb') as f:
         feature_names = pickle.load(f)
     return feature_names
 
@@ -87,7 +91,7 @@ def load_feature_names():
 def load_metrics():
     """Cargar métricas del modelo"""
     import json
-    with open('models/results_summary.json', 'r') as f:
+    with open(BASE_DIR / 'models' / 'results_summary.json', 'r') as f:
         metrics = json.load(f)
     return metrics
 
