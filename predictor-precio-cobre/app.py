@@ -318,9 +318,7 @@ with tab1:
     fig_forecast.add_vline(
         x=last_date.to_pydatetime(),
         line_dash="dot",
-        line_color="gray",
-        annotation_text="Último dato",
-        annotation_position="top"
+        line_color="gray"
     )
 
     fig_forecast.update_layout(
