@@ -3,8 +3,13 @@
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3.2-orange.svg)](https://scikit-learn.org/)
 [![XGBoost](https://img.shields.io/badge/XGBoost-2.0.3-red.svg)](https://xgboost.readthedocs.io/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.32.0-FF4B4B.svg)](https://streamlit.io/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](../LICENSE)
 [![Status](https://img.shields.io/badge/Status-Completed-success.svg)]()
+
+## Demo Interactiva
+
+**[Prueba el modelo en vivo](http://localhost:8501)** - Aplicación web interactiva con Streamlit
 
 Sistema completo de Machine Learning para predecir el precio del cobre utilizando series temporales y técnicas avanzadas de feature engineering.
 
@@ -138,6 +143,11 @@ predictor-precio-cobre/
 │   ├── models.py                    # Entrenamiento de modelos (6 modelos)
 │   └── visualization.py             # Gráficos estandarizados
 │
+├── .streamlit/                       # Configuración de Streamlit
+│   ├── config.toml                  # Tema y configuración del servidor
+│   └── secrets.toml                 # Secrets (no versionar)
+│
+├── app.py                            # Aplicación web Streamlit
 └── config.yaml                       # Parámetros configurables
 ```
 
@@ -180,7 +190,23 @@ pip install -r ../requirements.txt
 
 ## Uso
 
-### 1. Ejecutar el Pipeline Completo
+### 1. Demo Web Interactiva (Recomendado)
+
+Ejecuta la aplicación Streamlit para interactuar con el modelo:
+
+```bash
+cd predictor-precio-cobre
+streamlit run app.py
+```
+
+La aplicación incluye:
+- Predicción en tiempo real del precio del cobre
+- Visualizaciones interactivas de la serie temporal
+- Análisis de features más importantes
+- Intervalos de confianza de las predicciones
+- Métricas de rendimiento del modelo
+
+### 2. Ejecutar el Pipeline Completo
 
 Los notebooks están diseñados para ejecutarse en orden:
 
@@ -195,7 +221,7 @@ Secuencia recomendada:
 4. `04_modelado.ipynb` - Entrena modelos baseline
 5. `05_modelado_avanzado.ipynb` - Compara 5 modelos avanzados
 
-### 2. Usar Modelo Pre-entrenado
+### 3. Usar Modelo Pre-entrenado
 
 ```python
 import pickle
@@ -216,7 +242,7 @@ precio_predicho = model.predict(X_new)[0]
 print(f"Precio predicho: ${precio_predicho:.4f} USD/lb")
 ```
 
-### 3. Generar Nuevas Predicciones
+### 4. Generar Nuevas Predicciones
 
 ```python
 from src.data_loader import download_copper_yahoo
@@ -231,6 +257,17 @@ df_features = create_all_features(df_raw)
 # Predecir con modelo
 predictions = model.predict(df_features[feature_cols])
 ```
+
+### 5. Deploy en Streamlit Cloud (Opcional)
+
+Para compartir la aplicación públicamente:
+
+1. Sube el proyecto a GitHub
+2. Ve a [share.streamlit.io](https://share.streamlit.io)
+3. Conecta tu repositorio
+4. Despliega la aplicación
+
+La app estará disponible en una URL pública gratuita.
 
 ---
 
