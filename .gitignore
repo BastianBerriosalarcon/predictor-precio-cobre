@@ -48,6 +48,7 @@ predictor-precio-cobre/models/*.pt
 !predictor-precio-cobre/models/ridge_model.pkl
 !predictor-precio-cobre/models/linear_regression.pkl
 !predictor-precio-cobre/models/best_model.pkl
+!predictor-precio-cobre/models/feature_names.pkl
 !predictor-precio-cobre/models/*.csv
 !predictor-precio-cobre/models/*.json
 !predictor-precio-cobre/models/.gitkeep
