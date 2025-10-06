@@ -2,14 +2,14 @@
 # Solo incluye lo necesario para ejecutar app.py
 
 # Core data science
-pandas==2.2.2
-numpy>=1.26.4,<2.0
+pandas
+numpy
 
 # Machine learning (solo lo necesario para cargar modelos)
-scikit-learn==1.3.2
+scikit-learn
 
 # Visualization
-plotly==5.18.0
+plotly
 
 # Streamlit web app
-streamlit==1.32.0
+streamlit
