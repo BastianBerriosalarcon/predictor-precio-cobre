@@ -36,6 +36,7 @@ predictor-precio-cobre/data/processed/*.json
 # Excepciones: mantener archivos pequeños de metadata
 !predictor-precio-cobre/data/processed/features_summary.csv
 !predictor-precio-cobre/data/processed/model_comparison_all.csv
+!predictor-precio-cobre/data/processed/precio_cobre_features.csv
 !predictor-precio-cobre/data/**/.gitkeep
 
 # Modelos entrenados - predictor-precio-cobre
